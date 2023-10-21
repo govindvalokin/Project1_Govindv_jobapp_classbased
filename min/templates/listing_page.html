@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listing Page</title>
+    <link rel="stylesheet" href="{% static 'css/listing_page.css' %}">
+</head>
+<body>
+        {% if messages %}
+            {% for m in messages %}
+                <div class="alert">
+                    <span class="close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <p> {{ m }}</p>
+                </div>
+            {% endfor %}
+        {% endif %} 
+    
+    
+    <div class="container">
+        <div class="heading-title">
+            <h1>Application Listing Page</h1>
+            <div class="newform">
+                <a href="{% url 'jobform' %}"><button id="butt-2">New Form</button></a>
+            </div>
+        </div>
+        
+        <table>
+        
+            <tr class="heading">
+                <th>Sl No</th>
+                <th>Name</th>
+                {% comment %} <th>Last Name</th> {% endcomment %}
+                <th>Email</th>
+                <th>Job Role</th>
+                {% comment %} <th>Code</th> {% endcomment %}
+                <th>Phone Number</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            {% for i in data %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.first_name}} {{i.last_name}}</td>
+                {% comment %} <td></td> {% endcomment %}
+                <td>{{i.email}}</td>
+                <td>{{i.job_role}}</td>
+                {% comment %} <td></td> {% endcomment %}
+                <td>{{i.code}} {{i.phone}}</td>
+                
+                <td><a href="/updateform?userid={{i.id}}"><button class="editbutton">Edit</button></a></td>
+                <td><a href="/deleteform?userid={{i.id}}"><button class="delete-button">Delete</button></td>
+            </tr>
+            {% endfor %}    
+        </table>
+        {% comment %} <div class="newform">
+            <a href="{% url 'jobform' %}"><button id="butt-2">New Form</button></a>
+        </div> {% endcomment %}
+    </div>
+    
+    
+</body>
+</html>

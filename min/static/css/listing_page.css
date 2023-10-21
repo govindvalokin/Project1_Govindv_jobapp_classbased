@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    /* background-color: white; */
+    background-color: rgb(238, 211, 211);
+}
+.container{
+    height: auto;
+    width: 75%;
+    /* background-color: rgb(142, 228, 85); */
+    margin: 0 auto;
+    margin-top: 20px;
+    
+}
+table{
+    border: 2px solid rgb(64 44 151);
+    border-collapse: collapse;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: white;
+    
+}
+h1{
+    text-align: center;
+    color: #3c45b5;
+    /* color: black; */
+    margin-top: 28px;
+    margin-bottom: 10px;
+    
+}
+.newform{
+    /* background-color: yellow; */
+    text-align: center;
+    padding: 0px 0px 10px 0px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+   
+}
+th{
+    background-color: rgb(64 44 151);
+    color: white;
+    padding: 10px;
+    height: 20px;
+    width: 500px;   
+}
+td{
+    padding: 10px;
+    height: 20px;
+    width: 500px;
+    /* background-color: white; */
+
+}
+tr:nth-child(even) {
+    background-color: rgb(239 239 239);
+  }
+#butt-2{
+    background-color: #4635a3;
+    color: white;
+    font-weight: bold;
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+    border: 0.3px solid #4635a3
+    
+}
+#butt-2:hover{
+    background-color: rgb(63, 207, 63);
+    width: 130px;
+    transition-duration:.2s ;
+}
+.editbutton{
+    background-color: #4635a3;
+    color: white;
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 0.3px solid #4635a3
+    
+}
+.editbutton:hover{
+    background-color: rgb(63, 207, 63);
+}
+.delete-button{
+    background-color: #4635a3;
+    color: white;
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 0.3px solid #4635a3
+}
+.delete-button:hover{
+    background-color: red;
+}
+.alert {
+    padding: 8px;
+    background-color:#a7ff7e; 
+    color: rgb(0, 0, 0);
+    margin-bottom: 15px;
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+    border-radius: 7px;
+
+}
+
+  /* /* The close button / */
+.close-btn {
+    margin-left: 15px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+   
+    
+}
+
+  /* / When moving the mouse over the close button */ */
+.closebtn:hover {
+    color: black;
+}
+
+/* .heading{
+    display: flex;
+} */

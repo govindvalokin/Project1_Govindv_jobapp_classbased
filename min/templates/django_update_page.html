@@ -1,0 +1,218 @@
+{% extends "base.html" %}
+
+{% block body %}
+<form method="POST" action="" class="Form" id="Form">
+    {% csrf_token %}
+    <div class="formRow">
+        <div class="userInputs">
+            <div class="L">
+                {{form.first_name.label}}
+                <sup>*</sup>
+                {% comment %} <label>First Name<sup>*</sup></label> {% endcomment %}
+            </div>
+            <div class="input-field">
+                {% comment %} <input type="text" id="firstName" onchange="return validateFirstName(event)" name="firstname" placeholder="Type your First Name"> {% endcomment %}
+                {{form.first_name}}
+                <p id="error-tag"><span id="validFirstName"></span><p>
+            </div>    
+        </div>
+        <div class="userInputs">
+            <div class="L">
+                {% comment %} <label>Last Name</label> {% endcomment %}
+                {{form.last_name.label}}
+            </div>
+            <div class="input-field">
+                {% comment %} <input type="text" id="lastName" name="lastname" placeholder="Type your Last Name"> {% endcomment %}
+                {{form.last_name}}
+            </div>   
+        </div>    
+    </div>
+
+    <div class="formRow">
+        <div class="userInputs">
+            <div class="L">
+                {% comment %} <label>Phone<sup>*</sup></label> {% endcomment %}
+                {{form.phone.label}}
+                <sup>*</sup>
+            </div>
+            <div class="input-field">
+                {% comment %} <select name="code" id="code">
+                    <option selected value="+91">+91</option>
+                    <option value="+1">+1</option>
+                </select> {% endcomment %}
+                {{form.code}}
+                {{form.phone}}
+                {% comment %} <input type="text" onchange="validatePhone(event)" name="phone" placeholder="Type your Phone Number" id="mob" class="phoneno"> {% endcomment %}
+                <p id="error-tag"><span id="validateNumber"></span></p>
+            </div>    
+        </div>
+        <div class="userInputs">
+            <div class="L">
+                {{form.email.label}}
+                <sup>*</sup>
+                {% comment %} <label>Email<sup>*</sup></label> {% endcomment %}
+            </div>
+            <div class="input-field">
+                {{form.email}}
+                {% comment %} <input type="email" onchange="validateEmail(event)" id="email" name="email" placeholder="Type your Email Address"> {% endcomment %}
+                <p id="error-tag"><span id="validateEmail"></span></p>
+            </div>    
+        </div>    
+    </div>
+
+    <div class="formRow">
+        <div class="userInputs">
+            <div class="L">
+                {{form.dob.label}}
+                <sup>*</sup>
+                {% comment %} <label>DOB<sup>*</sup></label> {% endcomment %}
+            </div>
+            <div class="input-field">
+                {{form.dob}}
+                {% comment %} <input type="text" onfocus="(this.type = 'date')" placeholder="Enter Date of Birth" id="date" name="dob" onchange= "validateDate()"> {% endcomment %}
+                <p id="error-tag"><span id="validateDate"></span></p>
+            </div>    
+        </div>
+        <div class="userInputs">
+            <div class="L">
+                {{form.gender.label}}
+                {% comment %} <label>Gender<sup>*</sup></label> {% endcomment %}
+            </div>
+            <div class="input-field" id="gender-options">
+                {% comment %} <input type="radio" name="gender" value="Male">
+                <span class="gender-span">Male</span>
+                <input type="radio" name="gender" value="Female">
+                <span class="gender-span">Female</span>
+                <input type="radio" name="gender" value="Other">
+                <span class="gender-span">Others</span> {% endcomment %}
+                {{form.gender}}
+                <p id="error-tag"><span id="validateGender"></span></p>
+            </div>   
+        </div>
+    </div>
+    
+    <div class="formRow">
+        <div class="userInputs">
+            <div class="L">
+                {% comment %} <label>Job Role<sup>*</sup></label> {% endcomment %}
+                {{form.job_role.label}}
+                <sup>*</sup>
+            </div>
+            <div class="input-field">
+                {% comment %} <select name="role" id="role" onchange="validateJobRole()">
+                    <option id="role-option-one" value="" disabled="disabled" selected>Choose Job Role</option>
+                    <option value="Developer">Developer</option>
+                    <option value="Testing">Testing</option>
+                    <option value="Devops">Devops</option>
+                    <option value="Operations">Operations</option>
+                    <option value="Accounting">Accounting</option>
+                </select> {% endcomment %}
+                {{form.job_role}}
+                <p id="error-tag"><span id="validateJobRole"></span></p>
+            </div>    
+        </div>
+        <div class="userInputs">
+            <div class="L">
+                {{form.experience.label}}
+                <sup>*</sup>
+                {% comment %} <label>Experience<sup>*</sup></label> {% endcomment %}
+            </div>
+            <div class="input-field">
+                {% comment %} <select name="experience" id="experience" onchange="validateExperience()">
+                    <option id="experience-option-one" value="" selected="selected" disabled="disabled">Choose Experience (In years)</option>
+                    <option value = "0">0</option>
+                    <option value = "1">1</option>
+                    <option value = "2">2</option>
+                    <option value = "3">3</option>
+                    <option value = "4">4</option>
+                    <option value = "5+">5+</option>
+                </select> {% endcomment %}
+                {{form.experience}}
+                <p id="error-tag"><span id="validateExperience"></span></p>
+            </div>   
+        </div>
+    </div>
+    
+    <div class="formRow">
+        <div class="userInputs">
+            <div class="L">
+                {% comment %} <label>Address Line 1</label> {% endcomment %}
+                {{form.address_line_one.label}}
+            </div>
+            <div class="input-field">
+                {{form.address_line_one}}
+                {% comment %} <input type="text" id="address1" placeholder="Type your Address" name="addressline1"> {% endcomment %}
+            </div>   
+        </div>
+        <div class="userInputs">
+            <div class="L">
+                {{form.address_line_two.label}}
+                {% comment %} <label>Address Line 2</label> {% endcomment %}
+            </div>
+            <div class="input-field">
+                {{form.address_line_two}}
+                {% comment %} <input type="text" id="address2" placeholder="Type your Address" name="addressline2"> {% endcomment %}
+            </div>     
+        </div>
+    </div>
+    
+    <div class="formRow">
+        <div class="userInputs">
+            <div class="L">
+                {{form.city.label}}
+                {% comment %} <label>City</label> {% endcomment %}
+            </div>
+            <div class="input-field">
+                {{form.city}}
+                {% comment %} <input type="text" id="city" placeholder="Type your City" name="city"> {% endcomment %}
+            </div>   
+        </div>
+        <div class="userInputs">
+            <div class="L">
+                {{form.state.label}}
+                {% comment %} <label>State</label> {% endcomment %}
+            </div>
+            <div class="input-field">
+                {{form.state}}
+                {% comment %} <input type="text" id="state" placeholder="Type your State" name="state"> {% endcomment %}
+            </div>    
+        </div>
+    </div>
+    
+    <div class="formRow">
+        <div class="userInputs">
+            <div class="L">
+                {{form.zip_code.label}}
+                {% comment %} <label>Zip Code</label> {% endcomment %}
+            </div>
+            <div class="input-field">
+                {{form.zip_code}}
+                {% comment %} <input type="text" id="zipCode" placeholder="Type your Zip Code" name="zipcode"> {% endcomment %}
+            </div>    
+        </div>
+        <div class="userInputs">
+            <div class="L">
+                {{form.country.label}}
+                {% comment %} <label>Country</label> {% endcomment %}
+            </div>
+            <div class="input-field">
+                {% comment %} <select name="country" id="country">
+                    <option id="country-option-one" value="" disabled="disabled" selected>Choose Country</option>
+                    <option value="India">INDIA</option>
+                    <option value="US">US</option>
+                    
+                </select>   {% endcomment %}
+                {{form.country}}
+            </div>    
+        </div>
+    </div>
+    
+    <div class="formRow" id="buttonClass">
+        <input type="submit" value="Submit" id="b2"  name="submit">
+    </div> 
+</form>
+
+
+
+
+{% endblock body %}

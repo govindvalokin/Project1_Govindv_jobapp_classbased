@@ -1,0 +1,207 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Form</title>
+    <link rel="stylesheet" href="{% static 'css/job.css' %}">
+    <script src="{% static 'js/job.js' %}"></script>
+</head>
+<body>
+        {% if messages %}
+            {% for m in messages %}
+                <div class="alert">
+                    <span class="close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <p> {{ m }}</p>
+                </div>
+            {% endfor %}
+        {% endif %} 
+          
+    <div class="mainContainer">
+         
+        <div class="Title">
+            <h1>Job Application Form</h1>
+        </div>
+        
+        <form action="" class="Form" id="Form" onsubmit="validateForm(event)" method="POST">
+            {% csrf_token %}
+                <div class="formRow">
+                    <div class="userInputs">
+                        <div class="L">
+                            <label>First Name<sup>*</sup></label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="firstName" onchange="return validateFirstName(event)" name="firstname" placeholder="Type your First Name">
+                            <p id="error-tag"><span id="validFirstName"></span><p>
+                        </div>    
+                    </div>
+                    <div class="userInputs">
+                        <div class="L">
+                            <label>Last Name</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="lastName" name="lastname" placeholder="Type your Last Name">
+                            
+                        </div>   
+                    </div>    
+                </div>
+                
+                <div class="formRow">
+                    <div class="userInputs">
+                        <div class="L">
+                            <label>Phone<sup>*</sup></label>
+                        </div>
+                        <div class="input-field">
+                            <select name="code" id="code">
+                                <option selected value="+91">+91</option>
+                                <option value="+1">+1</option>
+                            </select>
+                            <input type="text" onchange="validatePhone(event)" name="phone" placeholder="Type your Phone Number" id="mob" class="phoneno">
+                            <p id="error-tag"><span id="validateNumber"></span></p>
+                        </div>    
+                    </div>
+                    <div class="userInputs">
+                        <div class="L">
+                            <label>Email<sup>*</sup></label>
+                        </div>
+                        <div class="input-field">
+                            <input type="email" onchange="validateEmail(event)" id="email" name="email" placeholder="Type your Email Address">
+                            <p id="error-tag"><span id="validateEmail"></span></p>
+                        </div>    
+                    </div>    
+                </div>
+                
+                <div class="formRow">
+                    <div class="userInputs">
+                        <div class="L">
+                            <label>DOB<sup>*</sup></label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" onfocus="(this.type = 'date')" placeholder="Enter Date of Birth" id="date" name="dob" onchange= "validateDate()">
+                            <p id="error-tag"><span id="validateDate"></span></p>
+                        </div>    
+                    </div>
+                    <div class="userInputs">
+                        <div class="L">
+                            <label>Gender<sup>*</sup></label>
+                        </div>
+                        <div class="input-field" id="gender-options">
+                            <input type="radio" name="gender" value="Male">
+                            <span class="gender-span">Male</span>
+                            <input type="radio" name="gender" value="Female">
+                            <span class="gender-span">Female</span>
+                            <input type="radio" name="gender" value="Other">
+                            <span class="gender-span">Others</span>
+                            <p id="error-tag"><span id="validateGender"></span></p>
+                        </div>   
+                    </div>
+                </div>
+                
+                <div class="formRow">
+                    <div class="userInputs">
+                        <div class="L">
+                            <label>Job Role<sup>*</sup></label>
+                        </div>
+                        <div class="input-field">
+                            <select name="role" id="role" onchange="validateJobRole()">
+                                <option id="role-option-one" value="" disabled="disabled" selected>Choose Job Role</option>
+                                <option value="Developer">Developer</option>
+                                <option value="Testing">Testing</option>
+                                <option value="Devops">Devops</option>
+                                <option value="Operations">Operations</option>
+                                <option value="Accounting">Accounting</option>
+                            </select>
+                            <p id="error-tag"><span id="validateJobRole"></span></p>
+                        </div>    
+                    </div>
+                    <div class="userInputs">
+                        <div class="L">
+                            <label>Experience<sup>*</sup></label>
+                        </div>
+                        <div class="input-field">
+                            <select name="experience" id="experience" onchange="validateExperience()">
+                                <option id="experience-option-one" value="" selected="selected" disabled="disabled">Choose Experience (In years)</option>
+                                <option value = "0">0</option>
+                                <option value = "1">1</option>
+                                <option value = "2">2</option>
+                                <option value = "3">3</option>
+                                <option value = "4">4</option>
+                                <option value = "5+">5+</option>
+                            </select>
+                            <p id="error-tag"><span id="validateExperience"></span></p>
+                        </div>   
+                    </div>
+                </div>
+                
+                <div class="formRow">
+                    <div class="userInputs">
+                        <div class="L">
+                            <label>Address Line 1</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="address1" placeholder="Type your Address" name="addressline1">
+                        </div>   
+                    </div>
+                    <div class="userInputs">
+                        <div class="L">
+                            <label>Address Line 2</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="address2" placeholder="Type your Address" name="addressline2">
+                        </div>     
+                    </div>
+                </div>
+                
+                <div class="formRow">
+                    <div class="userInputs">
+                        <div class="L">
+                            <label>City</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="city" placeholder="Type your City" name="city">
+                        </div>   
+                    </div>
+                    <div class="userInputs">
+                        <div class="L">
+                            <label>State</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="state" placeholder="Type your State" name="state">
+                        </div>    
+                    </div>
+                </div>
+                
+                <div class="formRow">
+                    <div class="userInputs">
+                        <div class="L">
+                            <label>Zip Code</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="zipCode" placeholder="Type your Zip Code" name="zipcode">
+                        </div>    
+                    </div>
+                    <div class="userInputs">
+                        <div class="L">
+                            <label>Country</label>
+                        </div>
+                        <div class="input-field">
+                            <select name="country" id="country">
+                                <option id="country-option-one" value="" disabled="disabled" selected>Choose Country</option>
+                                <option value="India">INDIA</option>
+                                <option value="US">US</option>
+                                
+                            </select>  
+                        </div>    
+                    </div>
+                </div>
+                <div class="formRow" id="buttonClass">
+                    <input type="submit" value="Submit" id="b2"  name="submit">
+                </div>            
+        </form>
+    </div>
+
+
+   
+</body>
+</html>

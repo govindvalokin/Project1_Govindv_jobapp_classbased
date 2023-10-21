@@ -1,0 +1,34 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Form</title>
+    <link rel="stylesheet" href="{% static 'css/django_form.css' %}">
+    
+</head>
+<body>
+        {% if messages %}
+            {% for m in messages %}
+                <div class="alert">
+                    <span class="close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <p> {{ m }}</p>
+                </div>
+            {% endfor %}
+        {% endif %} 
+          
+    <div class="mainContainer">
+        
+        <div class="Title">
+            <h1>Job Application Form</h1>
+        </div>
+        <div class="formContainer">
+            {% block body %}
+            {% endblock body %}
+        </div>
+
+    </div>
+    <script src="{% static 'js/django_form.js' %}"></script>
+</body>
+</html>

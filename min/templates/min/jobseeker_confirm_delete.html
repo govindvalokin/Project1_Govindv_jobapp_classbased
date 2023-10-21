@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/jobseeker_confirm_delete.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Are You Sure Want to Delete?!!</h1>
+        <div class="form-class">
+            <form method="POST">
+            {% csrf_token %}
+            <button type="submit" value="Delete" class="delete">Delete</button>
+            <a href="{% url 'user_data' %}" class="cancel">Cancel</a>
+            </form>    
+        </div>
+        
+    </div>
+</body>
+</html>
