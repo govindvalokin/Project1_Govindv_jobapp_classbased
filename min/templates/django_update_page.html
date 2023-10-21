@@ -5,7 +5,7 @@
     {% csrf_token %}
     <div class="formRow">
         <div class="userInputs">
-            <div class="L">
+            <div class="inputLabel">
                 {{form.first_name.label}}
                 <sup>*</sup>
                 {% comment %} <label>First Name<sup>*</sup></label> {% endcomment %}
@@ -17,7 +17,7 @@
             </div>    
         </div>
         <div class="userInputs">
-            <div class="L">
+            <div class="inputLabel">
                 {% comment %} <label>Last Name</label> {% endcomment %}
                 {{form.last_name.label}}
             </div>
@@ -30,7 +30,7 @@
 
     <div class="formRow">
         <div class="userInputs">
-            <div class="L">
+            <div class="inputLabel">
                 {% comment %} <label>Phone<sup>*</sup></label> {% endcomment %}
                 {{form.phone.label}}
                 <sup>*</sup>
@@ -47,7 +47,7 @@
             </div>    
         </div>
         <div class="userInputs">
-            <div class="L">
+            <div class="inputLabel">
                 {{form.email.label}}
                 <sup>*</sup>
                 {% comment %} <label>Email<sup>*</sup></label> {% endcomment %}
@@ -62,7 +62,7 @@
 
     <div class="formRow">
         <div class="userInputs">
-            <div class="L">
+            <div class="inputLabel">
                 {{form.dob.label}}
                 <sup>*</sup>
                 {% comment %} <label>DOB<sup>*</sup></label> {% endcomment %}
@@ -74,7 +74,7 @@
             </div>    
         </div>
         <div class="userInputs">
-            <div class="L">
+            <div class="inputLabel">
                 {{form.gender.label}}
                 {% comment %} <label>Gender<sup>*</sup></label> {% endcomment %}
             </div>
@@ -93,7 +93,7 @@
     
     <div class="formRow">
         <div class="userInputs">
-            <div class="L">
+            <div class="inputLabel">
                 {% comment %} <label>Job Role<sup>*</sup></label> {% endcomment %}
                 {{form.job_role.label}}
                 <sup>*</sup>
@@ -112,7 +112,7 @@
             </div>    
         </div>
         <div class="userInputs">
-            <div class="L">
+            <div class="inputLabel">
                 {{form.experience.label}}
                 <sup>*</sup>
                 {% comment %} <label>Experience<sup>*</sup></label> {% endcomment %}
@@ -135,7 +135,7 @@
     
     <div class="formRow">
         <div class="userInputs">
-            <div class="L">
+            <div class="inputLabel">
                 {% comment %} <label>Address Line 1</label> {% endcomment %}
                 {{form.address_line_one.label}}
             </div>
@@ -145,7 +145,7 @@
             </div>   
         </div>
         <div class="userInputs">
-            <div class="L">
+            <div class="inputLabel">
                 {{form.address_line_two.label}}
                 {% comment %} <label>Address Line 2</label> {% endcomment %}
             </div>
@@ -158,7 +158,7 @@
     
     <div class="formRow">
         <div class="userInputs">
-            <div class="L">
+            <div class="inputLabel">
                 {{form.city.label}}
                 {% comment %} <label>City</label> {% endcomment %}
             </div>
@@ -168,7 +168,7 @@
             </div>   
         </div>
         <div class="userInputs">
-            <div class="L">
+            <div class="inputLabel">
                 {{form.state.label}}
                 {% comment %} <label>State</label> {% endcomment %}
             </div>
@@ -181,7 +181,7 @@
     
     <div class="formRow">
         <div class="userInputs">
-            <div class="L">
+            <div class="inputLabel">
                 {{form.zip_code.label}}
                 {% comment %} <label>Zip Code</label> {% endcomment %}
             </div>
@@ -191,7 +191,7 @@
             </div>    
         </div>
         <div class="userInputs">
-            <div class="L">
+            <div class="inputLabel">
                 {{form.country.label}}
                 {% comment %} <label>Country</label> {% endcomment %}
             </div>

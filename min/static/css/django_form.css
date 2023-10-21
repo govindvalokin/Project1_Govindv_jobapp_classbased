@@ -31,28 +31,18 @@ body {
 
 Form {
     width: 900px;
-
 }
 
 .formRow {
     display: flex;
     height: 40px;
-    /* align-items: baseline; */
     margin: 0px 5px 15px 5px;
-
-
-
 }
 
 .userInputs {
     width: 450px;
-    /* background-color: aquamarine; */
     display: flex;
-    /* justify-content: space-evenly; */
     padding: 5px;
-    /* justify-content: flex-start; */
-
-
 }
 
 input[type="text"] {
@@ -61,7 +51,6 @@ input[type="text"] {
     border-radius: 5px;
     border: 1px solid;
     padding-left: 5px;
-
 }
 
 select {
@@ -117,17 +106,14 @@ input[type="email"] {
     height: 40px;
     font-weight: bold;
     font-size: medium;
-
-
 }
 
-.L {
+
+.inputLabel {
     width: 100px;
     text-align: start;
-
     margin-right: 5px;
     padding-top: 5px;
-
 }
 
 .gender-span {
@@ -151,7 +137,6 @@ input[type="radio"] {
     text-align: center;
     width: 70%;
     margin: 0 auto;
-    /* border-radius: 7px; */
 }
 
 /* /* The close button / */
@@ -168,14 +153,12 @@ input[type="radio"] {
 }
 
 /* / When moving the mouse over the close button */
-*/ .closebtn:hover {
+.closebtn:hover {
     color: black;
 }
 
 #role-option-one {
-    /* color: #eb5c1a; */
     display: none;
-
 }
 
 #experience-option-one {
@@ -197,10 +180,6 @@ sup {
     padding-left: 5px;
     color: Red;
     font-weight: lighter;
-
-    /* height: 19px;
-    background-color: green;
-    width: 300px; */
 }
 
 .job-experience option:first-child {
@@ -218,8 +197,6 @@ sup {
 #id_gender {
     display: flex;
     justify-content: space-between;
-    /* margin-right: 86px; */
-
 }
 
 #id_gender label {
@@ -229,14 +206,7 @@ sup {
 
 
 
-
-
-
-
-
-
-
-
+/* For mobile view */
 @media (max-width: 480px) {
     .mainContainer {
         width: 460px;
@@ -267,7 +237,8 @@ sup {
         font-size: larger;
     }
 
-    .L {
+
+    .inputLabel {
         padding-top: 0px;
         padding-bottom: 4px;
     }
@@ -316,7 +287,7 @@ sup {
 }
 
 
-
+/* For Tablet view */
 @media (min-width: 481px) and (max-width: 768px) {
     .mainContainer {
         width: 748px;
@@ -331,15 +302,12 @@ sup {
     .formRow {
         display: flex;
         flex-direction: column;
-        margin-bottom: 95px;
-
+        margin-bottom: 97px;
     }
 
     .userInputs {
         width: 728px;
-        /* flex-direction: column; */
-        /* margin-bottom: 12px; */
-        /* margin-top: 2px; */
+        margin-bottom: 12px;
     }
 
     .Title {
@@ -351,7 +319,8 @@ sup {
         width: 620px;
     }
 
-    .L {
+
+    .inputLabel {
         padding-top: 0px;
         padding-bottom: 4px;
     }
