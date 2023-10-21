@@ -151,7 +151,7 @@ input[type="radio"] {
     text-align: center;
     width: 70%;
     margin: 0 auto;
-    border-radius: 7px;
+    /* border-radius: 7px; */
 }
 
 /* /* The close button / */

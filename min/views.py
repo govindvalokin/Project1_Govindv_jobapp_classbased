@@ -258,32 +258,15 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 #     return render(request,"django_listing_page.html",{"data":userdata})
 
 
-# classview listing page
-class applicant_List_View(ListView):
-    def get(self,request,*args,**kwargs):
-        userdata = Jobseeker.objects.all().order_by('-id')
-        return render(request,"django_listing_page.html",{"data":userdata})
 
 
 
 
-class create_List_View(ListView):
-    def get(self,request,*args,**kwargs):
-        form = JobForm()
-        return render(request,"form.html", {"form":form})
-    
-    def post(self,request,*args,**kwargs):
-        form = JobForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect("/listing")
-        
-    def delete(self,request,*args,**kwargs):
-        userid=request.GET['userid']
-        Jobseeker.objects.get(id = userid).delete()
-        return HttpResponseRedirect("/listing")
 
-         
+
+
+
+#View for getting all user data         
 class UserListView(ListView):
     model = Jobseeker
     template_name = "django_listing_page.html"
@@ -291,23 +274,30 @@ class UserListView(ListView):
 
     def get_queryset(self):
         return Jobseeker.objects.all().order_by('-id')
-    
+
+#View for creating new user    
 class UserCreateView(CreateView):
     model = Jobseeker
     template_name = "form.html"
     form_class = JobForm
     success_url = reverse_lazy("user_data")
 
+    def form_valid(self, form):
+        messages.add_message(self.request, messages.INFO, "Successfully Submitted your Application")
+        return super().form_valid(form)
+    
+#view for updating existing user data
 class UserUpdateView(UpdateView):
     model = Jobseeker
     template_name = "django_update_page.html"
     form_class = JobForm
     success_url = reverse_lazy("user_data")
 
-    # def form_valid(self, form):
-    #     messages.success(self.request, 'Your profile has been updated successfully.')
-    #     return super().form_valid(form)
+    def form_valid(self, form):
+        messages.add_message(self.request, messages.INFO, "Successfully Updated your Data")
+        return super().form_valid(form)
 
+# View for deleting existing user
 class UserDeleteView(DeleteView):
     model = Jobseeker
     success_url = reverse_lazy("user_data")

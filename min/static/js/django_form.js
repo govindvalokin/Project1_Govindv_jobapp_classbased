@@ -1,26 +1,9 @@
 
 
 const form = document.getElementById("Form");
-console.log("form=", form)
+// console.log("form=", form)
 
-//Onsubmit validation
-// function validateForm(event){
-//     validateFirstName();
-//     validateEmail();
-//     validateDate();
-//     validatePhone();
-//     validateJobRole();
-//     validateGender();
-//     validateExperience();
-//     if (validateFirstName() && validatePhone() && validateEmail() && validateJobRole() && validateGender() && validateExperience() && validateDate() === true){
-//         console.log("submitted");
-//         event.submit();    
-//     }
-//     else{
-//         event.preventDefault(); 
-//         return;
-//     }
-// }
+
 
 //Getting values from input fields using ID or name
 var firstname = document.getElementById("firstName");
@@ -38,7 +21,7 @@ form.addEventListener('submit', (event) => {
     validatePhone(event);
     validateEmail(event);
     validateDate(event);
-    validateGender(event);
+    // validateGender(event);
     validateJobRole(event);
     validateExperience(event);
 
@@ -74,23 +57,7 @@ firstname.addEventListener('change', (event) => {
 
 
 
-// Last name validation
-// function validateLastName(event){
-//     var lastname = document.getElementById("lastName").value.trim();
-//     if(lastname===""){
-//         document.getElementById("validLastName").innerHTML="Name can not be empty";
-//         // console.log("121");
-//         return false;
-//     }
-//     if((lastname.length<1) || (lastname.length>25)){
-//         document.getElementById("validLastName").innerHTML="Number of letters must be between 1 and 25";
-//         return false;
-//     }
-//     else{
-//         document.getElementById("validLastName").innerHTML="";
-//         return true;
-//     }
-// }
+
 
 
 
@@ -147,7 +114,7 @@ email.addEventListener('change', (event) => {
 
 // Gender validation
 // function validateGender(event) {
-    
+
 //     var genderFlag = false;
 //     for (var i = 0; i < gender.length; i++) {
 //         if (gender[i].checked) {
@@ -196,7 +163,7 @@ givenDateField.addEventListener('change', (event) => {
 
 //Job role validation
 function validateJobRole(event) {
-    
+
     if (jobRole.value == "" || jobRole.value == null) {
         document.getElementById("validateJobRole").innerHTML = "Can not be empty";
         event.preventDefault();
@@ -216,7 +183,7 @@ jobRole.addEventListener('change', (event) => {
 
 //Experience validation
 function validateExperience(event) {
-    
+
     if (experience.value == "" || experience.value == null) {
         document.getElementById("validateExperience").innerHTML = "Can not be empty";
         event.preventDefault();

@@ -13,11 +13,12 @@ urlpatterns = [
     # path('deleteform/',views.deleteData,name="delete"),
     
     
-    path('listing/', applicant_List_View.as_view()),
-    path('dform/', create_List_View.as_view()),
+    # path('listing/', applicant_List_View.as_view()),
+    # path('dform/', create_List_View.as_view()),
 
     #for class based views
     path('userlistview/', UserListView.as_view(), name="user_data"),
+    path('', UserListView.as_view(), name="user_data"),
     path('usercreateview/', UserCreateView.as_view(),name="new_user"),
     path('userupdateview/<int:pk>/', views.UserUpdateView.as_view(), name="update"),
     path('userdeleteview/<int:pk>/', views.UserDeleteView.as_view(), name="delete"),

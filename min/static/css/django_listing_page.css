@@ -32,6 +32,7 @@ table {
 
     background-color: white;
     width: 100%;
+    /* width: 1000px; */
 
 }
 
@@ -148,12 +149,22 @@ tr:nth-child(even) {
 
     td {
         height: 106px;
+        font-size: x-large;
     }
 
     th {
         height: 60px;
         font-size: larger;
     }
-
+    .heading-title {
+        /* margin: 0 auto; */
+        width: 846.14px;
+    }
+    .container{
+        width: 846.14px;
+    }
+    .newform{
+        width: 846.14px;
+    }
 
 }
