@@ -113,8 +113,6 @@ tr:nth-child(even) {
     text-align: center;
     width: 70%;
     margin: 0 auto;
-    border-radius: 7px;
-
 }
 
 /* /* The close button / */
@@ -127,8 +125,6 @@ tr:nth-child(even) {
     line-height: 20px;
     cursor: pointer;
     transition: 0.3s;
-
-
 }
 
 /* / When moving the mouse over the close button */
@@ -156,14 +152,17 @@ tr:nth-child(even) {
         height: 60px;
         font-size: larger;
     }
+
     .heading-title {
         /* margin: 0 auto; */
         width: 846.14px;
     }
-    .container{
+
+    .container {
         width: 846.14px;
     }
-    .newform{
+
+    .newform {
         width: 846.14px;
     }
 

@@ -1,17 +1,45 @@
 from django.db import models
+from django.core.exceptions import ValidationError
+import re
+from datetime import date, datetime
 
 # Create your models here.
 class Jobseeker(models.Model):
-    first_name = models.CharField(max_length = 25, null = False)
+    def validate_first_name(first_name):
+        if (first_name == None) or (first_name == "") or (len(first_name) < 3) or (len(first_name) > 25):
+            raise ValidationError(f"{first_name} is invalid")
+    
+    def validate_phone(phone):
+        regexmob = r'^\d{10}$'
+        matchvalue = re.match(regexmob, phone)
+        if (phone == "" or matchvalue == None):
+            raise ValidationError(f"{phone} is invalid")
+    
+    # def validate_date(dob):
+    #     today = date.today()
+    #     givenDate = datetime.strptime(str(dob), "%Y-%m-%d").date() #converting string to date object    
+    #     if ((today - givenDate).total_seconds() / 31536000 < 18):    
+    #         raise ValidationError(f"{dob} is invalid")
+
+    def validate_date(dob):
+        today = str(date.today())
+        date1 = datetime.strptime(today, "%Y-%m-%d")
+        date2 = datetime.strptime(str(dob), "%Y-%m-%d")
+        time_diff = (date1 - date2).days/365.25
+        if (int(time_diff) < 18):
+            raise ValidationError(f"{dob} is invalid")    
+        
+
+    first_name = models.CharField(max_length = 25, null = False, validators = [validate_first_name])
     last_name = models.CharField(max_length = 25, null = True, blank = True)
     country_code = [
                     ('+91','+91'),
                     ('+1','+1')
                     ]
     code = models.CharField(max_length = 3, null = False, choices = country_code, default= '+91')
-    phone = models.CharField(max_length = 25, null = False)
+    phone = models.CharField(max_length = 10, null = False, validators = [validate_phone])
     email = models.EmailField(null = False)
-    dob = models.DateField(null = False)
+    dob = models.DateField(null = False, validators=[validate_date])
     genderchoice = [
         ('Male','Male'),
         ('Female','Female'),
@@ -53,3 +81,6 @@ class Jobseeker(models.Model):
 
     def __str__(self):
         return self.first_name
+    
+    
+        
