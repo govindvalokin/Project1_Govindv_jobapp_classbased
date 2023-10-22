@@ -5,7 +5,7 @@ from .models import Jobseeker
 class JobForm(forms.ModelForm):
     class Meta:
         model = Jobseeker
-        fields = '__all__'    
+        fields = '__all__'  
         labels = {
             'first_name':'First Name',
              'last_name':'Last Name',
@@ -27,7 +27,7 @@ class JobForm(forms.ModelForm):
             'first_name': forms.TextInput(attrs={
                 'id': "firstName", 
                 'placeholder': "Type your First Name",
-                'required': "False",
+                
             }),
             'last_name': forms.TextInput(attrs={
                 'placeholder': "Type your First Name",

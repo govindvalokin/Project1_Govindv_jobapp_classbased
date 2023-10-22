@@ -4,7 +4,6 @@ const form = document.getElementById("Form");
 // console.log("form=", form)
 
 
-
 //Getting values from input fields using ID or name
 var firstname = document.getElementById("firstName");
 var phonenumber = document.getElementById("mob");
@@ -21,7 +20,7 @@ form.addEventListener('submit', (event) => {
     validatePhone(event);
     validateEmail(event);
     validateDate(event);
-    // validateGender(event);
+    validateGender(event);
     validateJobRole(event);
     validateExperience(event);
 
@@ -113,22 +112,22 @@ email.addEventListener('change', (event) => {
 });
 
 // Gender validation
-// function validateGender(event) {
+ function validateGender(event) {
 
-//     var genderFlag = false;
-//     for (var i = 0; i < gender.length; i++) {
-//         if (gender[i].checked) {
-//             genderFlag = true;
-//             document.getElementById('validateGender').innerHTML = "";
-//             break;
-//         }
-//     }
-//     if (genderFlag == false) {
-//         document.getElementById('validateGender').innerHTML = "Choose any one option";
-//         return false;
-//     }
-//     return genderFlag;
-// }
+    var genderFlag = false;
+    for (var i = 0; i < gender.length; i++) {
+        if (gender[i].checked) {
+            genderFlag = true;
+            document.getElementById('validateGender').innerHTML = "";
+            break;
+        }
+    }
+    if (genderFlag == false) {
+        document.getElementById('validateGender').innerHTML = "Choose any one option";
+        return false;
+    }
+    return genderFlag;
+}
 
 // gender.addEventListener('change', (event) => {
 //     validateGender(event);
@@ -206,3 +205,5 @@ experience.addEventListener('change', (event) => {
 function preventbackbutton() { window.history.forward(); }
 setTimeout("preventbackbutton()", 0);
 window.onunload = function () { null };
+
+

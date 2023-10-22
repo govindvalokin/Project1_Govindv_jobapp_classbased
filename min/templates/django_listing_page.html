@@ -39,7 +39,7 @@
             {% for i in data %}
             <tr>
                 <td>{{forloop.counter}}</td>
-                <td>{{i.first_name}} {{i.last_name}}</td> 
+                <td>{{i.first_name}} {% if i.last_name %} {{i.last_name}} {% endif %}</td> 
                 <td>{{i.email}}</td>
                 <td>{{i.job_role}}</td>
                 <td>{{i.code}} {{i.phone}}</td>    

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block body %}
-<form method="POST" action="" class="Form" id="Form">
+<form method="POST" action="" class="Form" id="Form" novalidate>
     {% csrf_token %}
     <div class="formRow">
         <div class="userInputs">
@@ -76,6 +76,7 @@
         <div class="userInputs">
             <div class="inputLabel">
                 {{form.gender.label}}
+                <sup>*</sup>
                 {% comment %} <label>Gender<sup>*</sup></label> {% endcomment %}
             </div>
             <div class="input-field" id="gender-options">
