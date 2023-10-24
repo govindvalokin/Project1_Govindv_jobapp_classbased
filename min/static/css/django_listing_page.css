@@ -117,6 +117,28 @@ tr:nth-child(even) {
     color: black;
 }
 
+nav{
+    
+    width: 100%;
+    /* background-color: darkblue; */
+    display: flex;
+    justify-content: right;
+    height: 47px;
+    padding: 10px 13px 0px 0px;
+
+}
+#search_bar{
+    padding-left: 11px;
+    width: 221px;
+    border-radius: 33px;
+    height: 36px;
+}
+#search_button{
+    width: 82px;
+    margin-left: 5px;
+    border-radius: 23px;
+    height: 36px;
+}
 
 
 

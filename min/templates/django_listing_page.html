@@ -17,6 +17,14 @@
                 </div>
             {% endfor %}
         {% endif %} 
+
+    <nav>
+        <form method="GET" action="{% url 'searchlist' %}">
+            {% csrf_token %}
+            <input type="text" placeholder="Type First Name / Email" id="search_bar" name = "search_bar">
+            <input type="submit" value="Search" id="search_button">
+        </form>
+    </nav>
     
     
     <div class="container">

@@ -44,7 +44,7 @@ class Jobseeker(models.Model):
         max_length=3, null=False, choices=country_code, default="+91"
     )
     phone = models.CharField(max_length=10, null=False, validators=[validate_phone])
-    email = models.EmailField(null=False)
+    email = models.EmailField(null=False, unique=True)
     dob = models.DateField(null=False, validators=[validate_date])
     genderchoice = [("Male", "Male"), ("Female", "Female"), ("Other", "Other")]
     gender = models.CharField(
@@ -79,6 +79,6 @@ class Jobseeker(models.Model):
         null=True, max_length=5, choices=countrychoices, blank=True
     )
     # status = models.CharField(null=False, default="test", max_length=10)
-
+    # user_id = models.CharField(max_length=10, null=False, unique=True)
     def __str__(self):
         return self.first_name

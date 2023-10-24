@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponse, HttpResponseRedirect
 from .models import Jobseeker
 from .forms import JobForm
+from django.db.models import Q
 
 # from datetime import date
 # import re
@@ -23,6 +24,17 @@ class UserListView(ListView):
     def get_queryset(self):
         return Jobseeker.objects.all().order_by("-id")
 
+#view for showing particular user as per the  search request
+class SearchList(ListView):
+    model = Jobseeker
+    template_name = "django_listing_page.html"
+    context_object_name = "data"
+
+    def get_queryset(self):
+        search = self.request.GET.get("search_bar")
+        if search:
+            return Jobseeker.objects.all().filter(Q(first_name = search) | Q(email = search))
+
 
 # View for creating new user
 class UserCreateView(CreateView):
@@ -40,7 +52,10 @@ class UserCreateView(CreateView):
             self.request, messages.INFO, "Successfully Submitted your Application"
         )
         return super().form_valid(form)
-
+    #function to display error message 
+    def form_invalid(self, form):
+        messages.add_message(self.request, messages.INFO, form.errors)
+        return redirect("new_user")
 
 # view for updating existing user data
 class UserUpdateView(UpdateView):
