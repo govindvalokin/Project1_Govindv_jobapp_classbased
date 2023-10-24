@@ -1,7 +1,7 @@
 from django import forms
 from .models import Jobseeker
 
-
+# django model form for users
 class JobForm(forms.ModelForm):
     class Meta:
         model = Jobseeker

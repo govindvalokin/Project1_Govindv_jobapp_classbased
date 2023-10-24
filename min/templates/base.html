@@ -4,19 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Form</title>
+    <title>Job Application Form</title>
     <link rel="stylesheet" href="{% static 'css/django_form.css' %}">
     
 </head>
 <body>
-        {% if messages %}
+        {% comment %} {% if messages %}
             {% for m in messages %}
                 <div class="alert">
                     <span class="close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
                     <p> {{ m }}</p>
                 </div>
             {% endfor %}
-        {% endif %} 
+        {% endif %}  {% endcomment %}
           
     <div class="mainContainer">
         

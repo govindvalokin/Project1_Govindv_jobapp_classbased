@@ -5,29 +5,29 @@ from datetime import date, datetime
 
 # Create your models here.
 class Jobseeker(models.Model):
+    #First name custom validation
     def validate_first_name(first_name):
         if (first_name == None) or (first_name == "") or (len(first_name) < 3) or (len(first_name) > 25):
             raise ValidationError(f"{first_name} is invalid")
-    
+        
+    #Phone number custom validation
     def validate_phone(phone):
         regexmob = r'^\d{10}$'
         matchvalue = re.match(regexmob, phone)
         if (phone == "" or matchvalue == None):
             raise ValidationError(f"{phone} is invalid")
     
+    #Custom date validation
     # def validate_date(dob):
     #     today = date.today()
     #     givenDate = datetime.strptime(str(dob), "%Y-%m-%d").date() #converting string to date object    
     #     if ((today - givenDate).total_seconds() / 31536000 < 18):    
     #         raise ValidationError(f"{dob} is invalid")
-
+        
     def validate_date(dob):
-        today = str(date.today())
-        date1 = datetime.strptime(today, "%Y-%m-%d")
-        date2 = datetime.strptime(str(dob), "%Y-%m-%d")
-        time_diff = (date1 - date2).days/365.25
-        if (int(time_diff) < 18):
-            raise ValidationError(f"{dob} is invalid")    
+        today = date.today()   
+        if ((today - dob).total_seconds() / 31536000 < 18):    
+            raise ValidationError(f"{dob} is invalid")
         
 
     first_name = models.CharField(max_length = 25, null = False, validators = [validate_first_name])

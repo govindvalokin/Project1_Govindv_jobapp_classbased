@@ -1,7 +1,7 @@
 
 
 const form = document.getElementById("Form");
-// console.log("form=", form)
+
 
 
 //Getting values from input fields using ID or name
@@ -53,12 +53,6 @@ firstname.addEventListener('change', (event) => {
     validateFirstName(event);
 
 });
-
-
-
-
-
-
 
 
 // Phone number validation

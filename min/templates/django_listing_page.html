@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{% static 'css/django_listing_page.css' %}">
 </head>
 <body>
+    <!-- success message after submission -->
         {% if messages %}
             {% for m in messages %}
                 <div class="alert">
@@ -22,10 +23,11 @@
         <div class="heading-title">
             <h1>Application Listing Page</h1>
             <div class="newform">
+                <!-- button for new form -->
                 <a href="{% url 'new_user' %}"><button id="butt-2">New Form</button></a>
             </div>
         </div>
-        
+        <!-- table for displaying registered users -->
         <table>
             <tr class="heading">
                 <th>Sl No</th>
@@ -42,8 +44,10 @@
                 <td>{{i.first_name}} {% if i.last_name %} {{i.last_name}} {% endif %}</td> 
                 <td>{{i.email}}</td>
                 <td>{{i.job_role}}</td>
-                <td>{{i.code}} {{i.phone}}</td>    
+                <td>{{i.code}} {{i.phone}}</td> 
+                <!-- edit user data button    -->
                 <td><a href="{% url "update" i.id %}"><img id="edit-icon" src="{% static 'icons/edit_icon.png' %}"></a></td>
+                <!-- delete button for existing user -->
                 <td><a href="{% url "delete" i.id %}"><img id="delete-icon" src="{% static 'icons/delete_icon.png' %}"></a></td>
             </tr>
             {% endfor %}    
